@@ -20,6 +20,7 @@ inflated font weight on Mac OS X. Particularly useful with light-on-dark text
 or with `@font-face`d web fonts.
 See <http://lists.w3.org/Archives/Public/www-style/2012Oct/0109.html>.
 
-## voffset($height, $offset)
+## voffset($height, $offset: null)
 Elements with all-uppercase text appear off-center visually due to unused
-descender space. This allows for shifting them down a bit.
+descender space. This allows for shifting them down a bit. If called with only
+one argument, it is used as `$offset` (despite the parameter order here).

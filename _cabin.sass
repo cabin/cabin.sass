@@ -39,6 +39,11 @@
 
 // Elements with all-uppercase text appear off-center visually due to unused
 // descender space. This allows for shifting them down a bit.
-=voffset($height, $offset)
-  line-height: $height - $offset
-  padding-top: $offset
+// If called with only one argument, it is used as $offset (despite the
+// parameter order here).
+=voffset($height, $offset: null)
+  @if $offset == null
+    padding-top: $height
+  @else
+    line-height: $height - $offset
+    padding-top: $offset

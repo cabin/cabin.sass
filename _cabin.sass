@@ -1,0 +1,44 @@
+// Include this mixin at the top level to apply baseline house styles. To limit
+// its effects to a wrapper element, pass a selector argument.
+=cabin-defaults($selector: null)
+  // Prevent default webkit focus glow.
+  #{$selector} \:focus
+    outline: none
+
+  // Prevent extra space below unfloated images.
+  #{$selector} img
+    vertical-align: bottom
+
+  // Ensure JS-only link elements appear clickable.
+  #{$selector} a
+    cursor: pointer
+    text-decoration: none
+
+  // Hide Angular cloaked elements.
+  #{$selector} [ng-cloak], #{$selector} .ng-cloak
+    display: none !important
+
+
+// Hide Mobile Safari's background flash on tap.
+=prevent-tap-highlight
+  -webkit-tap-highlight-color: transparent
+
+
+// Switch from subpixel antialiasing to greyscale, which reduces artificially-
+// inflated font weight on Mac OS X. Particularly useful with light-on-dark
+// text or with `@font-face`d web fonts.
+// See <http://lists.w3.org/Archives/Public/www-style/2012Oct/0109.html>.
+=reduce-font-dilation($value: true)
+  @if $value
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+  @else
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto
+
+
+// Elements with all-uppercase text appear off-center visually due to unused
+// descender space. This allows for shifting them down a bit.
+=voffset($height, $offset)
+  line-height: $height - $offset
+  padding-top: $offset

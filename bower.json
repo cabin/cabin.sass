@@ -1,0 +1,14 @@
+{
+  "name": "cabin.sass",
+  "version": "1.0.0",
+  "authors": [
+    "Zak Johnson <zak@madebycabin.com>"
+  ],
+  "description": "Some common Sass helpers we use across projects.",
+  "main": "_cabin.sass",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*"
+  ]
+}
